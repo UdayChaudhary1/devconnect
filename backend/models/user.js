@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    avatar: {
+      type: String,
+      default: "https://example.com/default-avatar.png", // replace with real URL later
+    },
     lastLogin: {
       type: Date,
       default: Date.now,
