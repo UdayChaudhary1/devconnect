@@ -25,6 +25,8 @@ export const signup = async (req, res) => {
     });
 
     await user.save();
+
+    generateTokenAndSetCookie(res, user._id);
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
