@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "https://example.com/default-avatar.png", // replace with real URL later
     },
+    bio: {
+      type: String,
+      maxlength: 200,
+    },
     lastLogin: {
       type: Date,
       default: Date.now,
