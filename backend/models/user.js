@@ -30,6 +30,8 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     isVerified: {
       type: Boolean,
       default: false,
