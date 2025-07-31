@@ -45,6 +45,17 @@ export const signup = async (req, res) => {
   }
 };
 
+export const verifyEmail = async (req, res) => {
+  const { code } = req.body;
+
+  try {
+    const user = await user.findOne({
+      verficationToken: code,
+      verficationTokenExpiresAt: { $gt: Date.now() },
+    });
+  } catch (error) {}
+};
+
 export const login = async (req, res) => {
   res.send("login Route");
 };
