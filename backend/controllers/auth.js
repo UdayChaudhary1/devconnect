@@ -60,6 +60,10 @@ export const verifyEmail = async (req, res) => {
         message: "Invalid or expired verification code",
       });
     }
+    user.verified = true;
+    user.verificationToken = undefined;
+    user.verficationTokenExpiresAt = undefined;
+    await user.save();
   } catch (error) {}
 };
 
