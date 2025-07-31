@@ -95,6 +95,8 @@ export const login = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Invalid credentials" });
     }
+
+    generateTokenAndSetCookie(res, user._id);
   } catch (error) {}
 };
 
