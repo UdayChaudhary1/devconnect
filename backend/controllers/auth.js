@@ -53,6 +53,13 @@ export const verifyEmail = async (req, res) => {
       verficationToken: code,
       verficationTokenExpiresAt: { $gt: Date.now() },
     });
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid or expired verification code",
+      });
+    }
   } catch (error) {}
 };
 
