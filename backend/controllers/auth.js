@@ -186,5 +186,8 @@ export const resetPassword = async (req, res) => {
       success: true,
       message: "Password reset Successful",
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log("Error in resetPassword", error);
+    res.status(400).json({ success: false, message: error.message });
+  }
 };
