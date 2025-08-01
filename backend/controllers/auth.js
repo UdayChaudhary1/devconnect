@@ -181,5 +181,10 @@ export const resetPassword = async (req, res) => {
     await user.save();
 
     await sendResetSuccessEmail(user.email);
+
+    res.status(200).json({
+      success: true,
+      message: "Password reset Successful",
+    });
   } catch (error) {}
 };
