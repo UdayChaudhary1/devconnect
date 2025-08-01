@@ -176,5 +176,9 @@ export const resetPassword = async (req, res) => {
     user.password = hashedPassword;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpiresAt = undefined;
+
+    await user.save();
+
+    await sendResetSuccessEmail(user.email);
   } catch (error) {}
 };
